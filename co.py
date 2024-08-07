@@ -1,4 +1,5 @@
 import random
+from queue import Queue
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
 
@@ -83,7 +84,11 @@ def check_answer(update: Update, context: CallbackContext) -> None:
         update.message.reply_text('ارسلي "افريقيا" لبدء التحدي.')
 
 def main() -> None:
-    updater = Updater("7154304328:AAFXIXAGxQG9b8Myu9U4HygI_T2BDSEoTJI")
+    # Create the update queue
+    update_queue = Queue()
+    
+    # Initialize the Updater with the token and update queue
+    updater = Updater("7154304328:AAFXIXAGxQG9b8Myu9U4HygI_T2BDSEoTJI", update_queue=update_queue)
     
     dispatcher = updater.dispatcher
     
