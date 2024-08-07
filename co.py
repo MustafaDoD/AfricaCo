@@ -2,7 +2,6 @@ import random
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
 
-# قائمة الدول الأفريقية وعواصمها
 countries_capitals = {
     "الجزائر": "الجزائر",
     "أنغولا": "لواندا",
@@ -62,7 +61,7 @@ countries_capitals = {
 
 # وظيفة لبدء البوت
 def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('مرحباً! أرسل "افريقيا" لبدء التحدي.')
+    update.message.reply_text('هلو! ارسلي "افريقيا" عشان تبدي التحدي •-•.')
 
 # وظيفة للتحدي
 def africa(update: Update, context: CallbackContext) -> None:
@@ -76,15 +75,15 @@ def check_answer(update: Update, context: CallbackContext) -> None:
     if country:
         capital = countries_capitals[country]
         if update.message.text == capital:
-            update.message.reply_text('إجابة صحيحة!')
+            update.message.reply_text('صحييييح ترربيييتي😼!')
         else:
-            update.message.reply_text(f'إجابة خاطئة. العاصمة الصحيحة هي {capital}.')
+            update.message.reply_text(f'نوووب خطأ. العاصمة الصحيحة هي {capital}.')
         del context.user_data['country']
     else:
-        update.message.reply_text('أرسل "افريقيا" لبدء التحدي.')
+        update.message.reply_text('ارسلي "افريقيا" لبدء التحدي.')
 
 def main() -> None:
-    updater = Updater("YOUR_TELEGRAM_BOT_API_TOKEN")
+    updater = Updater("7154304328:AAFXIXAGxQG9b8Myu9U4HygI_T2BDSEoTJI")
     
     dispatcher = updater.dispatcher
     
